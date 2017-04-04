@@ -1,4 +1,3 @@
-
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -19,12 +18,12 @@
                 <li>
                     <a href="/trips">Найти</a>
                 </li>
-            <#if user?exists && user.driver?exists>
+            <#if user?? && user.driver??>
                 <li>
                     <a href="/newtrip">Предложить поездку</a>
                 </li>
             </#if>
-            <#if user?exists>
+            <#if user?? && user.id??>
                 <li>
                     <a href="/users/${user.id}">${user.nickname}</a>
                 </li>
