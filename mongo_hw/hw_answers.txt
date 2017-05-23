@@ -1,0 +1,25 @@
+Дз:
+1 - d
+2 - d
+3 - A
+4 - {"fruit" :["apple", "pear", "peach"]}
+5- db.getCollection('fruit').insert({"name" :"apple", "color" : "red", "shape" : "round"})
+  db.getCollection('fruit').findone({"name" :"apple", "color" : "red", "shape" : "round"})
+6 - db.getCollection("posts").find({name : "apple"}, {color : 1, shape: 1})
+7 - db.getCollection("students").find({"scores.score" : {$gte :50}}, {student : 1})
+
+8-	db.getCollection("students").find({"scores.score" : {$gte :50, $lte: 60}}, {student : 1})
+
+
+9 db.getCollection("users").find({ "phone":{ $exists: true} , "name" : {$regex: "i"}})
+
+10 db.getCollection("students").find({ $or: [ { "scores.score": { $lt: 50 } }, { "scores.score": {$gt: 90}} ] })
+
+11 - a, c
+12 - c
+13 db.getCollection("students").remove({"scores.score":{$lt:60}})
+14
+15 - db.posts.aggregate([
+ {$unwind:"$comments"},
+ {$group: { _id:"$comments.author", totalComments:{$sum:1} } },
+ {$sort:{totalComments:1}}, {$limit: 1} ])

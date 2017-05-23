@@ -4,7 +4,7 @@ import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
 import java.util.List;
 
-public class TestWs {
+public class TestSOAPWs {
 
     public static void main(String[] args) {
         String soapServiceUrl = "http://localhost:8081/services/tripService";
@@ -15,8 +15,7 @@ public class TestWs {
 
         TripsService tripService = (TripsService) factoryBean.create();
 
-//        tripService.findByDriver();
-        List<Trip> result = tripService.findAll();
+        List<Trip> result = tripService.zz();
         for (Trip trip : result) {
             System.out.println("trip id = " + trip.getId());
         }
